@@ -21,7 +21,7 @@
 
 ```bash
 git clone https://github.com/Artem-chelovek/safe-sql
-cd safe-sql-runner
+cd safe-sql
 
 python3 -m venv venv
 source venv/bin/activate
