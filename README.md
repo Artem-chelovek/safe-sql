@@ -12,7 +12,7 @@
 ### 1. Клонируйте репозиторий
 
 ```bash
-git clone <URL_РЕПОЗИТОРИЯ>
+git clone https://github.com/Artem-chelovek/safe-sql
 cd safe-sql
 ```
 ### 2. Установите Python и PostgreSQL
