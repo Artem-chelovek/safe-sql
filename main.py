@@ -49,6 +49,7 @@ def validate_select_only(query):
     for keyword in FORBIDDEN_KEYWORDS:
         if re.search(rf"\b{keyword}\b", upper_query):
             raise ValueError("Ошибка: разрешены только SELECT-запросы")
+            sys.exit(1)
 
 
 def ensure_limit(query):
