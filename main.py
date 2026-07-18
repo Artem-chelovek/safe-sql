@@ -44,6 +44,7 @@ def validate_select_only(query):
         raise ValueError("Ошибка: разрешён только один запрос за раз")
     if not SELECT_PATTERN.match(query):
         raise ValueError("Ошибка: разрешены только SELECT-запросы")
+        sys.exit(1)
     upper_query = query.upper()
     for keyword in FORBIDDEN_KEYWORDS:
         if re.search(rf"\b{keyword}\b", upper_query):
