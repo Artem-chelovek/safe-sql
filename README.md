@@ -8,7 +8,14 @@
 
 ## Установка
 
-### 1. Установите Python и PostgreSQL
+
+### 1. Клонируйте репозиторий
+
+```bash
+git clone <URL_РЕПОЗИТОРИЯ>
+cd safe-sql
+```
+### 2. Установите Python и PostgreSQL
 
 ```bash
 sudo apt update
@@ -21,7 +28,7 @@ sudo apt install -y python3 python3-venv python3-pip postgresql postgresql-contr
 python3 --version
 ```
 
-### 2. Запустите PostgreSQL
+### 3. Запустите PostgreSQL
 
 Кластер БД создаётся автоматически при установке пакета, нужно только включить службу:
 
@@ -35,7 +42,7 @@ sudo systemctl enable --now postgresql
 sudo systemctl status postgresql
 ```
 
-### 3. Задайте пароль для пользователя БД и создайте базу данных
+### 4. Задайте пароль для пользователя БД и создайте базу данных
 
 ```bash
 sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"
@@ -48,13 +55,6 @@ sudo -u postgres createdb sql_runner_demo
 
 ```bash
 sudo systemctl restart postgresql
-```
-
-### 4. Клонируйте репозиторий
-
-```bash
-git clone <URL_РЕПОЗИТОРИЯ>
-cd safe-sql
 ```
 
 ### 5. Создайте виртуальное окружение и установите зависимости
