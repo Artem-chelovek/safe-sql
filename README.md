@@ -68,7 +68,6 @@ CREATE TABLE students (
 INSERT INTO students (name, age) VALUES
     ('Иван', 20), ('Мария', 22), ('Пётр', 19),
     ('Анна', 21), ('Олег', 23), ('Света', 20);
-"
 \q
 ```
 
