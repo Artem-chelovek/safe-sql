@@ -71,7 +71,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Откройте `.env` и укажите параметры, соответствующие шагу 3:
+Откройте `.env` и укажите параметры, соответствующие шагу 4:
 
 ```
 DB_HOST=localhost
