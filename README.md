@@ -119,7 +119,7 @@ python main.py
 ### Пример 1 — обычный SELECT
 
 ```
-Введите SQL-запрос: SELECT * FROM students
+SELECT * FROM students
 ```
 
 Так как `LIMIT` не указан, он будет добавлен автоматически (`LIMIT 5`),
@@ -128,7 +128,7 @@ python main.py
 ### Пример 2 — запрос с уже заданным LIMIT
 
 ```
-Введите SQL-запрос: SELECT * FROM students LIMIT 20
+SELECT * FROM students LIMIT 20
 ```
 
 Лимит не изменяется, если он уже указан в запросе.
@@ -136,7 +136,7 @@ python main.py
 ### Пример 3 — запрещённый запрос
 
 ```
-Введите SQL-запрос: DELETE FROM students
+DELETE FROM students
 ```
 
 Вывод:
