@@ -29,7 +29,6 @@ FORBIDDEN_KEYWORDS = (
 
 SELECT_PATTERN = re.compile(r"^\s*SELECT\b", re.IGNORECASE)
 LIMIT_PATTERN = re.compile(r"\bLIMIT\b", re.IGNORECASE)
-DEFAULT_LIMIT = 5
 
 
 def strip_query(raw_query):
@@ -43,12 +42,10 @@ def validate_select_only(query):
     if ";" in query:
         raise ValueError("Ошибка: разрешён только один запрос за раз")
     if not SELECT_PATTERN.match(query):
-        sys.exit(1)
         raise ValueError("Ошибка: разрешены только SELECT-запросы")
     upper_query = query.upper()
     for keyword in FORBIDDEN_KEYWORDS:
         if re.search(rf"\b{keyword}\b", upper_query):
-            sys.exit(1)
             raise ValueError("Ошибка: разрешены только SELECT-запросы")
             
 
