@@ -17,7 +17,65 @@
 - Python 3.10+
 - Доступный сервер PostgreSQL
 
-## Установка
+## (ОПЦИОНАЛЬНО )Установка PostgreSQL
+
+Если PostgreSQL ещё не установлен локально, ниже — быстрая установка
+для основных дистрибутивов. Если сервер уже есть (локально, в Docker
+или на удалённом хосте) — этот шаг можно пропустить и перейти сразу
+к «Установка скрипта».
+
+### Ubuntu / Debian
+
+```bash
+sudo apt update
+sudo apt install -y postgresql postgresql-contrib
+
+sudo systemctl enable --now postgresql
+sudo systemctl status postgresql   # должно быть active (running)
+```
+
+### Arch Linux
+
+```bash
+sudo pacman -S --needed postgresql
+
+# инициализация кластера БД (только при первой установке)
+sudo -iu postgres initdb -D /var/lib/postgres/data
+
+sudo systemctl enable --now postgresql
+sudo systemctl status postgresql
+```
+
+### (ОПЦИОНАЛЬНО) Создание базы данных и пользователя
+
+После установки PostgreSQL по умолчанию создаётся системный пользователь
+`postgres` без пароля для входа по паролю. Задайте пароль и создайте базу,
+которую будет использовать скрипт (значения ниже соответствуют
+`.env.example`):
+
+```bash
+sudo -u postgres psql
+```
+
+Внутри `psql`:
+
+```sql
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    age INT
+);
+INSERT INTO students (name, age) VALUES
+    ('Иван', 20), ('Мария', 22), ('Пётр', 19),
+    ('Анна', 21), ('Олег', 23), ('Света', 20);
+"
+\q
+```
+
+
+
+
+## Установка скрипта
 
 ```bash
 git clone https://github.com/Artem-chelovek/safe-sql
